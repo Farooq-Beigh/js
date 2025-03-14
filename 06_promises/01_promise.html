@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises in JS</title>
+</head>
+<body>
+    <h1>Promise In JavaScript</h1>
+</body>
+
+<script>
+    //js promise
+   let checkEven = new Promise((resolve,reject)=>{
+        let number = 4;
+        if (number%2 === 0){
+            resolve("The number is even")
+        }
+        else{
+            reject("The Number is odd")
+        }
+    })
+    checkEven.then((message)=>{
+        return console.log(message);
+    }).catch((error) => console.log(error)
+    )
+   
+    //js fetch using await
+   async function getData(){
+       let resultFromServer = await fetch("https://fakestoreapi.com/products/1");
+       console.log(await resultFromServer.json());
+   }
+   getData();
+   
+   
+   fetch('https://fakestoreapi.com/products/1')
+       .then((response) => response.json())
+       .then((data) => console.log(data))
+       .catch((error) => console.error('Error:', error));
+   
+   </script>
+</html>
